@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://duc1k6nyjin4"]
+
+[ext_resource type="Script" uid="uid://c85612leah41p" path="res://scripts/EnemyType.gd" id="1_dwlro"]
+[ext_resource type="Texture2D" uid="uid://b56mhlg330jv" path="res://sprites/enemigos/enemigo4.png" id="2_mrnsm"]
+
+[resource]
+script = ExtResource("1_dwlro")
+title = "sundae"
+texture = ExtResource("2_mrnsm")
+health = 2.0
+damage = 4.0
+metadata/_custom_type_script = "uid://c85612leah41p"

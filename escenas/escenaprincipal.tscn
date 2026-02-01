@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg7cer06afce"]
+
+[ext_resource type="Script" uid="uid://cn4rviqd3uwsx" path="res://escenaprincipal.gd" id="1_g8jtk"]
+[ext_resource type="PackedScene" uid="uid://bwlojfsbbppnd" path="res://escenas/nivel_1.tscn" id="2_xiq2u"]
+
+[node name="Escenaprincipal" type="Node2D"]
+script = ExtResource("1_g8jtk")
+niveles = Array[PackedScene]([ExtResource("2_xiq2u")])

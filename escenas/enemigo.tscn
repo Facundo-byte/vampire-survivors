@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccw8fmgt5j7kk"]
+
+[ext_resource type="Script" uid="uid://8wojapg18fqf" path="res://enemigo.gd" id="1_sms58"]
+[ext_resource type="Texture2D" uid="uid://ddklbg5lqxkbl" path="res://sprites/enemigos/enemigo1.png" id="2_uhebs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y7635"]
+radius = 18.0
+
+[node name="enemigo" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 12
+script = ExtResource("1_sms58")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5107422, 0.506902)
+texture = ExtResource("2_uhebs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_y7635")

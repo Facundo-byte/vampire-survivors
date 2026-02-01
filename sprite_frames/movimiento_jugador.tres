@@ -1,0 +1,26 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://cnygqwqrtmlpy"]
+
+[ext_resource type="Texture2D" uid="uid://ck1obxvwbgekk" path="res://sprites/sprite_gennaro1.png" id="1_o6cs2"]
+[ext_resource type="Texture2D" uid="uid://bttga1upar44r" path="res://sprites/sprite_gennaro2.png" id="2_xytx3"]
+[ext_resource type="Texture2D" uid="uid://d23owjsflmynt" path="res://sprites/sprite_gennaro3.png" id="3_6xsaf"]
+[ext_resource type="Texture2D" uid="uid://bu51me26quna5" path="res://sprites/sprite_gennaro4.png" id="4_j1nw1"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_o6cs2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xytx3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6xsaf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_j1nw1")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}]
