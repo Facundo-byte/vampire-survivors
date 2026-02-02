@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="coin" load_steps=3 format=3 uid="uid://cao4x8ygl8tj3"]
+
+[ext_resource type="Script" uid="uid://bme38shqbh1yk" path="res://tipo_moneda.gd" id="1_ugj8s"]
+[ext_resource type="Texture2D" uid="uid://d2r35v6fkw543" path="res://sprites/gemas/gema_verde.png" id="2_488di"]
+
+[resource]
+script = ExtResource("1_ugj8s")
+sprite = ExtResource("2_488di")
+exp = 1.0
+metadata/_custom_type_script = "uid://bme38shqbh1yk"

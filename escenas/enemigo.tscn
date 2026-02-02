@@ -1,19 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccw8fmgt5j7kk"]
+[gd_scene load_steps=9 format=3 uid="uid://ccw8fmgt5j7kk"]
 
 [ext_resource type="Script" uid="uid://8wojapg18fqf" path="res://enemigo.gd" id="1_sms58"]
 [ext_resource type="Texture2D" uid="uid://ddklbg5lqxkbl" path="res://sprites/enemigos/enemigo1.png" id="2_uhebs"]
+[ext_resource type="PackedScene" uid="uid://cpywri4enikvn" path="res://escenas/moneda.tscn" id="2_vu81h"]
+[ext_resource type="Script" uid="uid://bme38shqbh1yk" path="res://tipo_moneda.gd" id="3_r6fnk"]
+[ext_resource type="Resource" uid="uid://cao4x8ygl8tj3" path="res://resources/green_coin.tres" id="4_5phiq"]
+[ext_resource type="Resource" uid="uid://c5oh26v7khl7k" path="res://resources/blue_coin.tres" id="5_3owwl"]
+[ext_resource type="PackedScene" uid="uid://bdxpx1plg0yrp" path="res://escenas/cofre.tscn" id="6_r6fnk"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_y7635"]
-radius = 18.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r6fnk"]
+height = 38.666668
 
 [node name="enemigo" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
 collision_layer = 2
-collision_mask = 12
+collision_mask = 14
 script = ExtResource("1_sms58")
+coin_drop = ExtResource("2_vu81h")
+coin_droptype = Array[ExtResource("3_r6fnk")]([ExtResource("4_5phiq"), ExtResource("5_3owwl")])
+chest_drop = ExtResource("6_r6fnk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5107422, 0.506902)
 texture = ExtResource("2_uhebs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_y7635")
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_r6fnk")

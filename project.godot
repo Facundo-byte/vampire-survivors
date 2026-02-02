@@ -54,6 +54,7 @@ abajo={
 2d_physics/layer_2="enemigo"
 2d_physics/layer_3="obstaculo"
 2d_physics/layer_4="ataque"
+2d_physics/layer_5="item"
 
 [rendering]
 

@@ -14,11 +14,17 @@ var health: float = 100:
 		%Health.value = value
 var knife
 
+func _ready() -> void:
+	add_to_group("player")
+
 func _process(delta):
 	move_dir = Input.get_vector("izquierda", "derecha", "arriba", "abajo")
 	velocity = move_dir * speed 
 	move_dir.normalized()
 	move_and_collide(velocity * delta)
+	
+	if move_dir != Vector2.ZERO:
+		ant_move_dir = move_dir
 	
 	if velocity != Vector2.ZERO: 
 		if velocity.x < 0: 
@@ -45,11 +51,10 @@ func _on_attack_timer_timeout() -> void:
 	knife.global_position = global_position + move_dir * 16
 	
 	if move_dir != Vector2.ZERO: 
-		ant_move_dir = move_dir
 		knife.direction = move_dir 
 	elif ant_move_dir: 
 		knife.direction = ant_move_dir
 	else: 
-		knife.direction = move_dir
+		knife.direction = Vector2.RIGHT
 	
 	get_tree().current_scene.add_child(knife)

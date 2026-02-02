@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=3 uid="uid://bdxpx1plg0yrp"]
+
+[ext_resource type="Script" uid="uid://die7yjd22mjq2" path="res://escenas/cofre.gd" id="1_b07su"]
+[ext_resource type="Texture2D" uid="uid://dgvmpsrox0fb2" path="res://sprites/cofre/cofre_y_flecha1.png" id="1_prjuc"]
+[ext_resource type="Texture2D" uid="uid://d4k487dnqt0rn" path="res://sprites/cofre/cofre_y_flecha2.png" id="2_b07su"]
+[ext_resource type="Texture2D" uid="uid://n5ryv20p8tm2" path="res://sprites/cofre/cofre_y_flecha3.png" id="3_4q7if"]
+[ext_resource type="Texture2D" uid="uid://cm64p56au3im8" path="res://sprites/cofre/cofre_y_flecha4.png" id="4_u6gii"]
+[ext_resource type="Texture2D" uid="uid://bdnoplmhjgocb" path="res://sprites/cofre/cofre_y_flecha5.png" id="5_28bvb"]
+[ext_resource type="Texture2D" uid="uid://cnbgn3fbo8twu" path="res://sprites/cofre/cofre_y_flecha6.png" id="6_yygx1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijh4o"]
+size = Vector2(46, 58)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ee8vb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_prjuc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_b07su")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4q7if")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_u6gii")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_28bvb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yygx1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="cofre" type="Area2D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_b07su")
+sprite = NodePath("AnimatedSprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_ijh4o")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ee8vb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
