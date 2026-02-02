@@ -16,6 +16,7 @@ func _on_despawn_timeout() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	
 	var dmg = number_ref.instantiate()
+	dmg.position = position
 	dmg.text = str(1)
 	get_parent().add_child(dmg) #numeros de danio
 	

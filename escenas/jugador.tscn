@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://esieyk8g35o5"]
+[gd_scene format=3 uid="uid://esieyk8g35o5"]
 
 [ext_resource type="Script" uid="uid://mt4krbgnnirv" path="res://escenas/jugador.gd" id="1_ovq70"]
 [ext_resource type="SpriteFrames" uid="uid://cnygqwqrtmlpy" path="res://sprite_frames/movimiento_jugador.tres" id="2_jpodt"]
@@ -10,30 +10,30 @@ radius = 25.019993
 [sub_resource type="CircleShape2D" id="CircleShape2D_jpodt"]
 radius = 25.0
 
-[node name="Jugador" type="CharacterBody2D" node_paths=PackedStringArray("animacion", "bar")]
+[node name="Jugador" type="CharacterBody2D" unique_id=631112022 node_paths=PackedStringArray("animacion", "bar")]
 collision_mask = 4
 script = ExtResource("1_ovq70")
 animacion = NodePath("AnimatedSprite2D")
 bar = NodePath("Health")
 attack = ExtResource("3_njcx7")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=723468974]
 sprite_frames = ExtResource("2_jpodt")
 animation = &"idle_down"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1296473933]
 visible = false
 shape = SubResource("CircleShape2D_e85mw")
 
-[node name="SelfDamage" type="Area2D" parent="."]
+[node name="SelfDamage" type="Area2D" parent="." unique_id=626274320]
 collision_layer = 0
 collision_mask = 2
 
-[node name="Collision" type="CollisionShape2D" parent="SelfDamage"]
+[node name="Collision" type="CollisionShape2D" parent="SelfDamage" unique_id=686800360]
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_jpodt")
 
-[node name="Health" type="ProgressBar" parent="."]
+[node name="Health" type="ProgressBar" parent="." unique_id=312942225]
 unique_name_in_owner = true
 offset_left = -68.0
 offset_top = 31.0
@@ -41,12 +41,12 @@ offset_right = 79.0
 offset_bottom = 58.0
 value = 100.0
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1819686010]
 autostart = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=8902975]
 
-[node name="AttackTimer" type="Timer" parent="."]
+[node name="AttackTimer" type="Timer" parent="." unique_id=388619049]
 autostart = true
 
 [connection signal="body_entered" from="SelfDamage" to="." method="_on_self_damage_body_entered"]
