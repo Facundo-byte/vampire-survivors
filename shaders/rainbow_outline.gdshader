@@ -33,6 +33,9 @@ void fragment() {
 							   1.0);
 
 	vec4 color = texture(TEXTURE, UV);
-	COLOR = mix(color, animated_line_color, outline - color.a);
+	vec4 body = color * COLOR;
+
+	// 🌈 El outline IGNORA modulate
+	COLOR = mix(body, animated_line_color, outline - color.a);
 
 }

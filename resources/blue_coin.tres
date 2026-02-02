@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="coin" load_steps=3 format=3 uid="uid://c5oh26v7khl7k"]
 
-[ext_resource type="Script" uid="uid://bme38shqbh1yk" path="res://tipo_moneda.gd" id="1_i25wm"]
+[ext_resource type="Script" uid="uid://bme38shqbh1yk" path="res://scripts/tipo_moneda.gd" id="1_i25wm"]
 [ext_resource type="Texture2D" uid="uid://ov3ct6yvox41" path="res://sprites/gemas/gema.png" id="2_lgiak"]
 
 [resource]

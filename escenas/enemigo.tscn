@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://ccw8fmgt5j7kk"]
 
-[ext_resource type="Script" uid="uid://8wojapg18fqf" path="res://enemigo.gd" id="1_sms58"]
+[ext_resource type="Script" uid="uid://8wojapg18fqf" path="res://escenas/enemigo.gd" id="1_sms58"]
 [ext_resource type="Texture2D" uid="uid://ddklbg5lqxkbl" path="res://sprites/enemigos/enemigo1.png" id="2_uhebs"]
 [ext_resource type="PackedScene" uid="uid://cpywri4enikvn" path="res://escenas/moneda.tscn" id="2_vu81h"]
-[ext_resource type="Script" uid="uid://bme38shqbh1yk" path="res://tipo_moneda.gd" id="3_r6fnk"]
+[ext_resource type="Script" uid="uid://bme38shqbh1yk" path="res://scripts/tipo_moneda.gd" id="3_r6fnk"]
 [ext_resource type="Resource" uid="uid://cao4x8ygl8tj3" path="res://resources/green_coin.tres" id="4_5phiq"]
 [ext_resource type="Resource" uid="uid://c5oh26v7khl7k" path="res://resources/blue_coin.tres" id="5_3owwl"]
 [ext_resource type="PackedScene" uid="uid://bdxpx1plg0yrp" path="res://escenas/cofre.tscn" id="6_r6fnk"]
