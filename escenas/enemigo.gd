@@ -25,15 +25,20 @@ var type: Enemy:
 		damage = value.damage
 		health = value.health
 		title = str(value.title)
-	
+		
+var separation
+
 func _ready():
 	add_to_group("enemy")	
 	player_reference = get_tree().get_first_node_in_group("player")
 	
 func _physics_process(delta):
-	var separation = (player_reference.position - position).length()
+	separation = (player_reference.position - position).length()
 	if separation >= 700 and not elite: 
 		queue_free()
+	
+	if separation < player_reference.nearest_enemy_distance: 
+		player_reference.nearest_enemy = self
 		
 	velocity = (player_reference.position - position).normalized() * speed 
 	knockback = knockback.move_toward(Vector2.ZERO, 1)

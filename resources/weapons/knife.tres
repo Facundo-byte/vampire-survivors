@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="weapon" format=3 uid="uid://bc4xb8grr338g"]
+
+[ext_resource type="Script" uid="uid://bnoh8d8p70njt" path="res://scripts/WeaponType.gd" id="1_ks10t"]
+[ext_resource type="Texture2D" uid="uid://dww6nnedunxte" path="res://sprites/armas/cuchillo.png" id="2_4kf6l"]
+
+[resource]
+script = ExtResource("1_ks10t")
+title = "knife"
+damage = 1.0
+speed = 2.0
+atk_speed = 3.0
+sprite = ExtResource("2_4kf6l")
+metadata/_custom_type_script = "uid://bnoh8d8p70njt"

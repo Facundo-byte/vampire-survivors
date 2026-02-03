@@ -1,8 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cg7cer06afce"]
+[gd_scene format=3 uid="uid://cg7cer06afce"]
 
 [ext_resource type="Script" uid="uid://cn4rviqd3uwsx" path="res://escenas/escenaprincipal.gd" id="1_g8jtk"]
 [ext_resource type="PackedScene" uid="uid://bwlojfsbbppnd" path="res://escenas/nivel_1.tscn" id="2_xiq2u"]
+[ext_resource type="PackedScene" uid="uid://c7vxbaducm23b" path="res://escenas/menu_nivelsubido.tscn" id="3_nudb8"]
 
-[node name="Escenaprincipal" type="Node2D"]
+[node name="Escenaprincipal" type="Node2D" unique_id=1804318515]
 script = ExtResource("1_g8jtk")
 niveles = Array[PackedScene]([ExtResource("2_xiq2u")])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1452801856]
+process_mode = 3
+
+[node name="levelup" parent="CanvasLayer" unique_id=1574013335 instance=ExtResource("3_nudb8")]
+visible = false

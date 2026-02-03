@@ -10,7 +10,7 @@ func _ready():
 func _process(delta: float) -> void: 
 	position += direction * speed * delta
 
-func _on_despawn_timeout() -> void:
+func _on_screen_exited():
 	queue_free()
 
 func _on_body_entered(body: Node2D) -> void:

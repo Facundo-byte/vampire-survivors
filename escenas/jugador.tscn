@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://mt4krbgnnirv" path="res://escenas/jugador.gd" id="1_ovq70"]
 [ext_resource type="SpriteFrames" uid="uid://cnygqwqrtmlpy" path="res://sprite_frames/movimiento_jugador.tres" id="2_jpodt"]
-[ext_resource type="PackedScene" uid="uid://cihqh42ejj5j2" path="res://escenas/cuchillo.tscn" id="3_njcx7"]
+[ext_resource type="PackedScene" uid="uid://cihqh42ejj5j2" path="res://escenas/proyectil.tscn" id="3_njcx7"]
+[ext_resource type="PackedScene" uid="uid://d244hwdsxo4ss" path="res://escenas/ui.tscn" id="4_xutah"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e85mw"]
 radius = 25.019993
@@ -10,12 +11,13 @@ radius = 25.019993
 [sub_resource type="CircleShape2D" id="CircleShape2D_jpodt"]
 radius = 25.0
 
-[node name="Jugador" type="CharacterBody2D" unique_id=631112022 node_paths=PackedStringArray("animacion", "bar")]
+[node name="Jugador" type="CharacterBody2D" unique_id=631112022 node_paths=PackedStringArray("animacion", "bar", "expbar")]
 collision_mask = 4
 script = ExtResource("1_ovq70")
 animacion = NodePath("AnimatedSprite2D")
 bar = NodePath("Health")
 attack = ExtResource("3_njcx7")
+expbar = NodePath("Camera2D/ExpBar")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=723468974]
 sprite_frames = ExtResource("2_jpodt")
@@ -45,6 +47,22 @@ value = 100.0
 autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=8902975]
+
+[node name="ExpBar" type="ProgressBar" parent="Camera2D" unique_id=1973609064]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -575.0
+offset_top = -322.0
+offset_right = 574.0
+offset_bottom = -274.0
+grow_horizontal = 2
+
+[node name="UI" parent="Camera2D" unique_id=737447265 instance=ExtResource("4_xutah")]
+offset_left = -564.0
+offset_top = -266.0
+offset_right = -564.0
+offset_bottom = -266.0
 
 [node name="AttackTimer" type="Timer" parent="." unique_id=388619049]
 autostart = true

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://d244hwdsxo4ss"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_i3j6i"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_hw6l8"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_aa502"]
+
+[node name="UI" type="Control" unique_id=737447265]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=591925034]
+layout_mode = 0
+offset_right = 418.0
+offset_bottom = 82.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1484978490]
+layout_mode = 2
+texture = SubResource("CanvasTexture_i3j6i")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer" unique_id=1880268528]
+layout_mode = 2
+texture = SubResource("CanvasTexture_hw6l8")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer" unique_id=1789115531]
+layout_mode = 2
+texture = SubResource("CanvasTexture_aa502")
+expand_mode = 2

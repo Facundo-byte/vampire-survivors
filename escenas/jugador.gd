@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var animacion : AnimatedSprite2D
 @export var bar: ProgressBar
 @export var attack: PackedScene
+@export var expbar: ProgressBar #barra de experiencia
 
 var ant_move_dir
 var move_dir
@@ -12,12 +13,20 @@ var health: float = 100:
 	set(value):
 		health = value
 		%Health.value = value
+		
 var knife
+var nearest_enemy: CharacterBody2D
+var nearest_enemy_distance: float = INF 
 
 func _ready() -> void:
 	add_to_group("player")
 
 func _process(delta):
+	if nearest_enemy: 
+		nearest_enemy_distance = nearest_enemy.separation 
+	else:
+		nearest_enemy_distance = INF
+	
 	move_dir = Input.get_vector("izquierda", "derecha", "arriba", "abajo")
 	velocity = move_dir * speed 
 	move_dir.normalized()
@@ -58,3 +67,13 @@ func _on_attack_timer_timeout() -> void:
 		knife.direction = Vector2.RIGHT
 	
 	get_tree().current_scene.add_child(knife)
+
+func add_exp(experience: float): 
+	expbar.value += experience
+	if expbar.value == expbar.max_value:
+		var levelupmenu = get_tree().get_first_node_in_group("levelupscreen")
+		levelupmenu.visible = true
+		get_tree().paused = true
+		expbar.max_value = expbar.max_value * 2
+		expbar.value = 0
+	

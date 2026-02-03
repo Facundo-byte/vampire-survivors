@@ -9,4 +9,5 @@ var type: coin:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	body.add_exp(experience)
 	queue_free()

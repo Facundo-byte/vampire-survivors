@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="weapon" format=3 uid="uid://p6nvxkvsxm7a"]
+
+[ext_resource type="Script" uid="uid://bnoh8d8p70njt" path="res://scripts/WeaponType.gd" id="1_qxjxd"]
+[ext_resource type="Texture2D" uid="uid://cfgdk6vmr0op5" path="res://sprites/armas/bola.png" id="2_cgivd"]
+
+[resource]
+script = ExtResource("1_qxjxd")
+title = "ball"
+autoaim = true
+damage = 2.0
+speed = 5.0
+atk_speed = 4.0
+sprite = ExtResource("2_cgivd")
+metadata/_custom_type_script = "uid://bnoh8d8p70njt"
