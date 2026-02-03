@@ -1,7 +1,8 @@
 extends Area2D
 
 @export var number_ref : PackedScene
-@export var speed := 400 
+@export var weapontype: Array[weapon]
+@export var speed: float = 400
 var direction := Vector2.RIGHT 
 
 func _ready():

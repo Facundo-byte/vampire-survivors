@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dhlh26cdokj2k"]
+
+[ext_resource type="Script" uid="uid://cf3s2riuvn3th" path="res://seleccionarma.gd" id="1_tbupu"]
+[ext_resource type="Script" uid="uid://bnoh8d8p70njt" path="res://scripts/WeaponType.gd" id="2_cufp4"]
+[ext_resource type="Resource" uid="uid://p6nvxkvsxm7a" path="res://resources/weapons/ball.tres" id="3_0rh85"]
+[ext_resource type="Resource" uid="uid://bc4xb8grr338g" path="res://resources/weapons/knife.tres" id="4_rr4ib"]
+[ext_resource type="Texture2D" uid="uid://cfgdk6vmr0op5" path="res://sprites/armas/bola.png" id="5_ikh80"]
+
+[node name="seleccionarma" type="Control" unique_id=866733234 node_paths=PackedStringArray("arma1", "arma2", "arma3")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tbupu")
+weapon_type = Array[ExtResource("2_cufp4")]([ExtResource("3_0rh85"), ExtResource("4_rr4ib")])
+arma1 = NodePath("VBoxContainer/Arma1/Arma1")
+arma2 = NodePath("")
+arma3 = NodePath("")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=243431138]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=622613868]
+layout_mode = 2
+text = "Selecciona tu arma"
+
+[node name="Arma1" type="HBoxContainer" parent="VBoxContainer" unique_id=800174185]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Arma1" type="TextureButton" parent="VBoxContainer/Arma1" unique_id=409660071]
+layout_mode = 2
+texture_normal = ExtResource("5_ikh80")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Arma1" unique_id=187826665]
+layout_mode = 2
+
+[node name="Danio" type="Label" parent="VBoxContainer/Arma1/VBoxContainer" unique_id=1970022747]
+layout_mode = 2
+text = "Danio: 2"
+
+[node name="Velocidad" type="Label" parent="VBoxContainer/Arma1/VBoxContainer" unique_id=983820707]
+layout_mode = 2
+text = "Velocidad: 2"
+
+[node name="Cooldown" type="Label" parent="VBoxContainer/Arma1/VBoxContainer" unique_id=158164]
+layout_mode = 2
+text = "Cooldown: 2"
+
+[node name="Autoaim" type="Label" parent="VBoxContainer/Arma1/VBoxContainer" unique_id=901668189]
+layout_mode = 2
+text = "Autoaim: Si"
