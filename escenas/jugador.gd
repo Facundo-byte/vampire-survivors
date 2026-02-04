@@ -30,6 +30,8 @@ func set_weapon(id: int): #le digo que arma va a usar y reseteo el cooldown en b
 	weapon_sel = id
 	weapon_stats = weapon_types[id]
 	cooldown_atq.wait_time = weapon_stats.cooldown
+	var ui_weapon = get_tree().get_first_node_in_group("uiweapon")
+	ui_weapon.actualizarsprite(weapon_stats.sprite)
 
 func _process(delta):
 	if nearest_enemy: 
@@ -75,12 +77,13 @@ func _on_attack_timer_timeout() -> void:
 		p.global_position = global_position + Vector2(i * 5,i * 5) + move_dir * 16
 		p.sprite.texture = weapon_stats.sprite
 		projectiles.append(p)
-		
+	
 	if weapon_sel == 0 or weapon_sel == 2: #si es la bola se dirige al enemigo mas cercano
 		if nearest_enemy_distance != INF: 
-			for projectile in projectiles:
-				projectile.direction = (nearest_enemy.global_position - projectile.global_position).normalized()
-				get_tree().current_scene.add_child(projectile)
+			for p in projectiles:
+				p.direction = (nearest_enemy.global_position - p.global_position).normalized()
+				get_tree().current_scene.add_child(p)
+				
 	elif weapon_sel == 1: #si es el cuchillo va hacia donde se mueva el jugador
 		for projectile in projectiles:
 			if move_dir != Vector2.ZERO: 
