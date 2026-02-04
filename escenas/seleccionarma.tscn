@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bnoh8d8p70njt" path="res://scripts/WeaponType.gd" id="2_cufp4"]
 [ext_resource type="Resource" uid="uid://p6nvxkvsxm7a" path="res://resources/weapons/ball.tres" id="3_0rh85"]
 [ext_resource type="Resource" uid="uid://bc4xb8grr338g" path="res://resources/weapons/knife.tres" id="4_rr4ib"]
+[ext_resource type="Resource" uid="uid://dnrwslb4okonr" path="res://resources/weapons/fireball.tres" id="5_0rh85"]
 [ext_resource type="Texture2D" uid="uid://cfgdk6vmr0op5" path="res://sprites/armas/bola.png" id="5_ikh80"]
 
 [node name="seleccionarma" type="Control" unique_id=866733234 node_paths=PackedStringArray("arma1", "arma2", "arma3")]
@@ -14,10 +15,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tbupu")
-weapon_type = Array[ExtResource("2_cufp4")]([ExtResource("3_0rh85"), ExtResource("4_rr4ib")])
+weapon_type = Array[ExtResource("2_cufp4")]([ExtResource("3_0rh85"), ExtResource("4_rr4ib"), ExtResource("5_0rh85")])
 arma1 = NodePath("VBoxContainer/Arma1/Arma1")
-arma2 = NodePath("")
-arma3 = NodePath("")
+arma2 = NodePath("VBoxContainer/Arma2/Arma2")
+arma3 = NodePath("VBoxContainer/Arma3/Arma3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=243431138]
 layout_mode = 0
@@ -52,5 +53,58 @@ layout_mode = 2
 text = "Cooldown: 2"
 
 [node name="Autoaim" type="Label" parent="VBoxContainer/Arma1/VBoxContainer" unique_id=901668189]
+layout_mode = 2
+text = "Autoaim: Si"
+
+[node name="Arma2" type="HBoxContainer" parent="VBoxContainer" unique_id=235497425]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Arma2" type="TextureButton" parent="VBoxContainer/Arma2" unique_id=2119767720]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Arma2" unique_id=616106823]
+layout_mode = 2
+
+[node name="Danio" type="Label" parent="VBoxContainer/Arma2/VBoxContainer" unique_id=515078400]
+layout_mode = 2
+text = "Danio: 2"
+
+[node name="Velocidad" type="Label" parent="VBoxContainer/Arma2/VBoxContainer" unique_id=1834953826]
+layout_mode = 2
+text = "Velocidad: 2"
+
+[node name="Cooldown" type="Label" parent="VBoxContainer/Arma2/VBoxContainer" unique_id=901451843]
+layout_mode = 2
+text = "Cooldown: 2"
+
+[node name="Autoaim" type="Label" parent="VBoxContainer/Arma2/VBoxContainer" unique_id=699570005]
+layout_mode = 2
+text = "Autoaim: Si"
+
+[node name="Arma3" type="HBoxContainer" parent="VBoxContainer" unique_id=1810365401]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Arma3" type="TextureButton" parent="VBoxContainer/Arma3" unique_id=348403518]
+layout_mode = 2
+texture_normal = ExtResource("5_ikh80")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Arma3" unique_id=1401875857]
+layout_mode = 2
+
+[node name="Danio" type="Label" parent="VBoxContainer/Arma3/VBoxContainer" unique_id=1692626700]
+layout_mode = 2
+text = "Danio: 2"
+
+[node name="Velocidad" type="Label" parent="VBoxContainer/Arma3/VBoxContainer" unique_id=427555756]
+layout_mode = 2
+text = "Velocidad: 2"
+
+[node name="Cooldown" type="Label" parent="VBoxContainer/Arma3/VBoxContainer" unique_id=1513626215]
+layout_mode = 2
+text = "Cooldown: 2"
+
+[node name="Autoaim" type="Label" parent="VBoxContainer/Arma3/VBoxContainer" unique_id=2095979846]
 layout_mode = 2
 text = "Autoaim: Si"

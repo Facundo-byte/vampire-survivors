@@ -1,22 +1,21 @@
 extends Node2D
 
 @export var chunks: Array[TileMapLayer]
-@export var player: CharacterBody2D
+@onready var player := get_tree().get_first_node_in_group("player")
 
 var CHUNK_HEIGHT : int = 2112
 var h_mult: int = 1
 var current_chunk := 0
-
-var repeats: int = 2
+var weapon_chosen: int 
 
 func _ready():
+	player.set_weapon(weapon_chosen) #le selecciono el arma al jugador
 	chunks[0].position.y = -1 * CHUNK_HEIGHT
 	chunks[1].position.y = 0 * CHUNK_HEIGHT
 	chunks[2].position.y = 1 * CHUNK_HEIGHT
 
 func _physics_process(delta):
 	var new_chunk = int(floor(player.position.y / CHUNK_HEIGHT))
-
 	if new_chunk > current_chunk:
 		# bajando → mover el de arriba hacia abajo
 		var top_chunk = get_top_chunk()

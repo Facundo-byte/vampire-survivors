@@ -17,4 +17,7 @@ func _ready():
 	arma3.pressed.connect(_seleccionada.bind(2))
 	
 func _seleccionada(tipoarma: int):
-	get_tree().change_scene_to_packed(nivel1)
+	var escena_padre = get_parent()
+	
+	escena_padre.weapon_chosen = tipoarma #le envio el tipo de arma a la escena principal
+	escena_padre.chosen = true #le digo que ya se eligio un arma

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="weapon" format=3 uid="uid://dnrwslb4okonr"]
+
+[ext_resource type="Script" uid="uid://bnoh8d8p70njt" path="res://scripts/WeaponType.gd" id="1_wfpcs"]
+[ext_resource type="Texture2D" uid="uid://1yi7hihqovah" path="res://sprites/armas/bola_fuego.png" id="2_jymeo"]
+
+[resource]
+script = ExtResource("1_wfpcs")
+title = "fireball"
+autoaim = true
+damage = 4.0
+speed = 500.0
+cooldown = 1.0
+sprite = ExtResource("2_jymeo")
+amount = 3
+metadata/_custom_type_script = "uid://bnoh8d8p70njt"

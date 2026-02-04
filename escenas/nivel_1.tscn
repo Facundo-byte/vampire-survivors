@@ -51,10 +51,9 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 4
 sources/2 = SubResource("TileSetAtlasSource_43uub")
 
-[node name="nivel1" type="Node2D" unique_id=2120023202 node_paths=PackedStringArray("chunks", "player")]
+[node name="nivel1" type="Node2D" unique_id=2120023202 node_paths=PackedStringArray("chunks")]
 script = ExtResource("1_ylyhu")
 chunks = [NodePath("chunk1"), NodePath("chunk2"), NodePath("chunk3")]
-player = NodePath("Jugador")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=646415051]
 repeat_size = Vector2(0, 2112)

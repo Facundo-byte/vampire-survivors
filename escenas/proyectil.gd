@@ -1,9 +1,11 @@
 extends Area2D
 
 @export var number_ref : PackedScene
-@export var weapontype: Array[weapon]
-@export var speed: float = 400
+
+var dmg: float
+var speed: float
 var direction := Vector2.RIGHT 
+@export var sprite := Sprite2D
 
 func _ready():
 	rotation = direction.angle()
@@ -16,10 +18,10 @@ func _on_screen_exited():
 
 func _on_body_entered(body: Node2D) -> void:
 	
-	var dmg = number_ref.instantiate()
-	dmg.position = position
-	dmg.text = str(1)
-	get_parent().add_child(dmg) #numeros de danio
+	var dmg_number = number_ref.instantiate() #numero de danio
+	dmg_number.position = position
+	dmg_number.text = str(dmg)
+	get_parent().add_child(dmg_number) #numeros de danio
 	
-	body.take_damage(1) #enemigo recibiendo danio y cuchillo desapareciendo
+	body.take_damage(dmg) #enemigo recibiendo danio y cuchillo desapareciendo
 	queue_free()
