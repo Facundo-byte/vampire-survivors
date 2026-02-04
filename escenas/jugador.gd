@@ -19,7 +19,7 @@ var health: float = 100: #defino su salud
 		health = value
 		%Health.value = value
 		
-var projectile
+var projectiles: Array[Area2D]
 var nearest_enemy: CharacterBody2D #enemigo mas cercano (para el autoaim)
 var nearest_enemy_distance: float = INF 
 
@@ -66,26 +66,30 @@ func _on_timer_timeout() -> void:
 	%Collision.set_deferred("disabled", false)
 
 func _on_attack_timer_timeout() -> void:
-	projectile = attack.instantiate()
-	projectile.dmg = weapon_stats.damage
-	projectile.speed = weapon_stats.speed
-	projectile.global_position = global_position + move_dir * 16
-	projectile.sprite.texture = weapon_stats.sprite
+	projectiles.clear()
 	
-	print(projectile.dmg)
-	print(projectile.speed)
+	for i in weapon_stats.amount:
+		var p = attack.instantiate()
+		p.dmg = weapon_stats.damage
+		p.speed = weapon_stats.speed
+		p.global_position = global_position + Vector2(i * 5,i * 5) + move_dir * 16
+		p.sprite.texture = weapon_stats.sprite
+		projectiles.append(p)
+		
 	if weapon_sel == 0 or weapon_sel == 2: #si es la bola se dirige al enemigo mas cercano
 		if nearest_enemy_distance != INF: 
-			projectile.direction = (nearest_enemy.global_position - projectile.global_position).normalized()
-			get_tree().current_scene.add_child(projectile)
+			for projectile in projectiles:
+				projectile.direction = (nearest_enemy.global_position - projectile.global_position).normalized()
+				get_tree().current_scene.add_child(projectile)
 	elif weapon_sel == 1: #si es el cuchillo va hacia donde se mueva el jugador
-		if move_dir != Vector2.ZERO: 
-			projectile.direction = move_dir 
-		elif ant_move_dir: 
-			projectile.direction = ant_move_dir
-		else: 
-			projectile.direction = Vector2.RIGHT
-		get_tree().current_scene.add_child(projectile)
+		for projectile in projectiles:
+			if move_dir != Vector2.ZERO: 
+				projectile.direction = move_dir 
+			elif ant_move_dir: 
+				projectile.direction = ant_move_dir
+			else: 
+				projectile.direction = Vector2.RIGHT
+			get_tree().current_scene.add_child(projectile)
 
 func add_exp(experience: float): 
 	expbar.value += experience
