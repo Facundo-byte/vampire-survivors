@@ -9,3 +9,4 @@ class_name weapon
 @export var cooldown: float 
 @export var sprite: Texture
 @export var amount: int
+@export var scale: float

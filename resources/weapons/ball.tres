@@ -7,9 +7,10 @@
 script = ExtResource("1_qxjxd")
 title = "ball"
 autoaim = true
-damage = 2.0
+damage = 1.0
 speed = 400.0
 cooldown = 1.0
 sprite = ExtResource("2_cgivd")
 amount = 1
+scale = 1.0
 metadata/_custom_type_script = "uid://bnoh8d8p70njt"

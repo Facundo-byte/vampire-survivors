@@ -1,47 +1,50 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctbxswm2y1h2j"]
+[gd_scene format=3 uid="uid://ctbxswm2y1h2j"]
 
 [ext_resource type="Script" uid="uid://bs8618qltpbi5" path="res://escenas/spawner.gd" id="1_ah1d1"]
 [ext_resource type="PackedScene" uid="uid://ccw8fmgt5j7kk" path="res://escenas/enemigo.tscn" id="2_dms7m"]
 [ext_resource type="Script" uid="uid://c85612leah41p" path="res://scripts/EnemyType.gd" id="3_g2pxf"]
 [ext_resource type="Resource" uid="uid://cqhp4au7an7sf" path="res://resources/eye.tres" id="4_3hm3f"]
 [ext_resource type="Resource" uid="uid://bghv1f5srw21g" path="res://resources/skull.tres" id="5_vnemq"]
+[ext_resource type="Resource" uid="uid://da7lv1m0he6at" path="res://resources/red_skull.tres" id="6_ltp5t"]
+[ext_resource type="Resource" uid="uid://duc1k6nyjin4" path="res://resources/sundae.tres" id="7_s7g2l"]
+[ext_resource type="Resource" uid="uid://caxuh4f25be10" path="res://resources/brain.tres" id="8_l16px"]
 
-[node name="spawner" type="Node2D"]
+[node name="spawner" type="Node2D" unique_id=310790122]
 script = ExtResource("1_ah1d1")
 enemy = ExtResource("2_dms7m")
-enemy_types = Array[ExtResource("3_g2pxf")]([ExtResource("4_3hm3f"), ExtResource("5_vnemq")])
+enemy_types = Array[ExtResource("3_g2pxf")]([ExtResource("4_3hm3f"), ExtResource("5_vnemq"), ExtResource("6_ltp5t"), ExtResource("7_s7g2l"), ExtResource("8_l16px")])
 
-[node name="ui" type="CanvasLayer" parent="."]
+[node name="ui" type="CanvasLayer" parent="." unique_id=1003677291]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ui"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ui" unique_id=15893907]
 offset_left = 542.0
 offset_top = 56.0
 offset_right = 593.0
 offset_bottom = 96.0
 
-[node name="Minute" type="Label" parent="ui/HBoxContainer"]
+[node name="Minute" type="Label" parent="ui/HBoxContainer" unique_id=355268812]
 unique_name_in_owner = true
 layout_mode = 2
 text = "00"
 
-[node name="Label2" type="Label" parent="ui/HBoxContainer"]
+[node name="Label2" type="Label" parent="ui/HBoxContainer" unique_id=1315206602]
 layout_mode = 2
 text = ":"
 
-[node name="Second" type="Label" parent="ui/HBoxContainer"]
+[node name="Second" type="Label" parent="ui/HBoxContainer" unique_id=389480266]
 unique_name_in_owner = true
 layout_mode = 2
 text = "00"
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1249430013]
 autostart = true
 
-[node name="Pattern" type="Timer" parent="."]
+[node name="Pattern" type="Timer" parent="." unique_id=482083757]
 wait_time = 5.0
 autostart = true
 
-[node name="Elite" type="Timer" parent="."]
-wait_time = 12.358
+[node name="Elite" type="Timer" parent="." unique_id=216478474]
+wait_time = 30.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

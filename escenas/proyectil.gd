@@ -20,7 +20,7 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	var dmg_number = number_ref.instantiate() #numero de danio
 	dmg_number.position = position
-	dmg_number.text = str(dmg)
+	dmg_number.text = str(snapped(dmg,0.01))
 	get_parent().add_child(dmg_number) #numeros de danio
 	
 	body.take_damage(dmg) #enemigo recibiendo danio y cuchillo desapareciendo

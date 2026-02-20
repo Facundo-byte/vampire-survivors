@@ -6,9 +6,10 @@
 [resource]
 script = ExtResource("1_ks10t")
 title = "knife"
-damage = 1.0
+damage = 2.0
 speed = 400.0
 cooldown = 0.5
 sprite = ExtResource("2_4kf6l")
 amount = 2
+scale = 1.0
 metadata/_custom_type_script = "uid://bnoh8d8p70njt"

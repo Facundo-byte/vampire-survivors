@@ -9,6 +9,7 @@ extends CharacterBody2D
 var weapon_sel: int	
 @export var weapon_types: Array[weapon] #array con los tipos
 var weapon_stats: weapon #datos de ESTA ARMA
+var total_spread := deg_to_rad(30) # 20 grados de abanico total (para cuando hay muchos proyectiles)
 
 var ant_move_dir#movimiento
 var move_dir
@@ -74,15 +75,23 @@ func _on_attack_timer_timeout() -> void:
 		var p = attack.instantiate()
 		p.dmg = weapon_stats.damage
 		p.speed = weapon_stats.speed
+		p.scale.x = weapon_stats.scale
+		p.scale.y = weapon_stats.scale
 		p.global_position = global_position + Vector2(i * 5,i * 5) + move_dir * 16
 		p.sprite.texture = weapon_stats.sprite
 		projectiles.append(p)
 	
-	if weapon_sel == 0 or weapon_sel == 2: #si es la bola se dirige al enemigo mas cercano
-		if nearest_enemy_distance != INF: 
-			for p in projectiles:
-				p.direction = (nearest_enemy.global_position - p.global_position).normalized()
-				get_tree().current_scene.add_child(p)
+	if weapon_sel == 0: #si es la bola se dirige al enemigo mas cercano
+		var enemies = get_enemies_sorted_by_distance()
+	
+		if enemies.size() == 0:
+			return
+		
+		for i in range(projectiles.size()):
+			var enemy = enemies[i % enemies.size()]
+			var p = projectiles[i]
+			p.direction = (enemy.global_position - p.global_position).normalized()
+			get_tree().current_scene.add_child(p)
 				
 	elif weapon_sel == 1: #si es el cuchillo va hacia donde se mueva el jugador
 		for projectile in projectiles:
@@ -93,12 +102,36 @@ func _on_attack_timer_timeout() -> void:
 			else: 
 				projectile.direction = Vector2.RIGHT
 			get_tree().current_scene.add_child(projectile)
+			
+	else:
+		if nearest_enemy_distance != INF:
+			var base_dir = (nearest_enemy.global_position - global_position).normalized()
+			
+			var count := projectiles.size()
+
+			for i in range(count):
+				var t := 0.0
+				if count > 1:
+					t = float(i) / float(count - 1) - 0.5
+				var angle = t * total_spread
+				
+				var p = projectiles[i]
+				p.direction = base_dir.rotated(angle)
+				get_tree().current_scene.add_child(p)
+
+func get_enemies_sorted_by_distance() -> Array: #obtengo todos los enemigos y los ordeno por la distancia
+	var enemies = get_tree().get_nodes_in_group("enemy")
+	enemies.sort_custom(func(a, b):
+		return global_position.distance_to(a.global_position) < global_position.distance_to(b.global_position)
+	)
+	return enemies
 
 func add_exp(experience: float): 
 	expbar.value += experience
-	if expbar.value == expbar.max_value:
+	if expbar.value >= expbar.max_value:
 		var levelupmenu = get_tree().get_first_node_in_group("levelupscreen")
 		levelupmenu.visible = true
+		levelupmenu.aplicarmejora(weapon_sel)
 		get_tree().paused = true
 		expbar.max_value = expbar.max_value * 2
 		expbar.value = 0

@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dqwhbgkqr01ky"]
+
+[ext_resource type="Script" uid="uid://gqfucppmnxfi" path="res://escenas/menu_pausa.gd" id="1_b8d1t"]
+[ext_resource type="Texture2D" uid="uid://dr2hrn8ki2ptj" path="res://sprites/botones/Jugar.png" id="1_f7x2m"]
+[ext_resource type="Texture2D" uid="uid://bpyrysdyeuon4" path="res://sprites/botones/Salir.png" id="2_b8d1t"]
+
+[node name="MenuPausa" type="Control" unique_id=602226857 node_paths=PackedStringArray("buttons")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b8d1t")
+buttons = [NodePath("VBoxContainer/TextureButton"), NodePath("VBoxContainer/TextureButton2")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=305321148]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.5
+offset_top = -114.5
+offset_right = 135.5
+offset_bottom = 114.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=938789694]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "PAUSADO"
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer" unique_id=611238053]
+layout_mode = 2
+texture_normal = ExtResource("1_f7x2m")
+
+[node name="TextureButton2" type="TextureButton" parent="VBoxContainer" unique_id=978999084]
+layout_mode = 2
+texture_normal = ExtResource("2_b8d1t")

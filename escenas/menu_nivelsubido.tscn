@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2pc5mjtb1o0u" path="res://escenas/menu_nivelsubido.gd" id="1_81ry3"]
 
-[node name="levelup" type="Control" unique_id=1574013335 node_paths=PackedStringArray("mejora1", "mejora2", "mejora3")]
+[node name="levelup" type="Control" unique_id=1574013335 node_paths=PackedStringArray("mejoras")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,9 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_81ry3")
-mejora1 = NodePath("VboxContainer/Mejora1")
-mejora2 = NodePath("VboxContainer/Mejora2")
-mejora3 = NodePath("VboxContainer/Mejora3")
+mejoras = [NodePath("VboxContainer/Mejora1"), NodePath("VboxContainer/Mejora2"), NodePath("VboxContainer/Mejora3")]
 
 [node name="VboxContainer" type="VBoxContainer" parent="." unique_id=1333733968]
 layout_mode = 1
@@ -33,17 +31,11 @@ alignment = 1
 [node name="Mejora1" type="Button" parent="VboxContainer" unique_id=745927032]
 layout_mode = 2
 size_flags_vertical = 4
-text = "Attack Speed 
-Aumenta velocidad de ataque 5%"
 
 [node name="Mejora2" type="Button" parent="VboxContainer" unique_id=1632258436]
 layout_mode = 2
 size_flags_vertical = 4
-text = "Attack Speed 
-Aumenta velocidad de ataque 5%"
 
 [node name="Mejora3" type="Button" parent="VboxContainer" unique_id=387791456]
 layout_mode = 2
 size_flags_vertical = 4
-text = "Attack Speed 
-Aumenta velocidad de ataque 5%"
