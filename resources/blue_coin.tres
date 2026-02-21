@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("1_i25wm")
 sprite = ExtResource("2_lgiak")
-experience = 20.0
+experience = 40.0
 metadata/_custom_type_script = "uid://bme38shqbh1yk"

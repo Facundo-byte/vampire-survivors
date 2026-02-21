@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://cqhp4au7an7sf"]
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://cqhp4au7an7sf"]
 
 [ext_resource type="Script" uid="uid://c85612leah41p" path="res://scripts/EnemyType.gd" id="1_j8idg"]
 [ext_resource type="Texture2D" uid="uid://ddklbg5lqxkbl" path="res://sprites/enemigos/enemigo1.png" id="2_j8idg"]
 
 [resource]
 script = ExtResource("1_j8idg")
-title = "Eye"
+title = "eye"
 texture = ExtResource("2_j8idg")
 health = 1.0
 damage = 1.0

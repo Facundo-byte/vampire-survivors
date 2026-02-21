@@ -1,16 +1,13 @@
 [gd_scene format=3 uid="uid://cg7cer06afce"]
 
 [ext_resource type="Script" uid="uid://cn4rviqd3uwsx" path="res://escenas/escenaprincipal.gd" id="1_g8jtk"]
-[ext_resource type="PackedScene" uid="uid://dgqkdljk3iwkn" path="res://escenas/menu_principal.tscn" id="2_atdpu"]
-[ext_resource type="PackedScene" uid="uid://dhlh26cdokj2k" path="res://escenas/seleccionarma.tscn" id="2_mc2tk"]
 [ext_resource type="PackedScene" uid="uid://bwlojfsbbppnd" path="res://escenas/nivel_1.tscn" id="2_xiq2u"]
 [ext_resource type="PackedScene" uid="uid://c7vxbaducm23b" path="res://escenas/menu_nivelsubido.tscn" id="3_nudb8"]
-[ext_resource type="PackedScene" uid="uid://domuajdgjdt7h" path="res://escenas/fin.tscn" id="5_6qidu"]
 [ext_resource type="PackedScene" uid="uid://dqwhbgkqr01ky" path="res://escenas/menu_pausa.tscn" id="6_y0crk"]
 
 [node name="Escenaprincipal" type="Node2D" unique_id=1804318515]
 script = ExtResource("1_g8jtk")
-niveles = Array[PackedScene]([ExtResource("2_atdpu"), ExtResource("2_mc2tk"), ExtResource("2_xiq2u"), ExtResource("5_6qidu")])
+niveles = Array[PackedScene]([ExtResource("2_xiq2u")])
 
 [node name="ControladorPausa" type="CanvasLayer" parent="." unique_id=1452801856]
 process_mode = 3

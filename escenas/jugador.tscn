@@ -28,9 +28,9 @@ script = ExtResource("1_ovq70")
 animacion = NodePath("AnimatedSprite2D")
 bar = NodePath("Health")
 attack = ExtResource("3_njcx7")
-expbar = NodePath("CanvasLayer/ExpBar")
+expbar = NodePath("CanvasLayer2/HBoxContainer/ExpBar")
 cooldown_atq = NodePath("Cooldown_attack")
-t_nivel = NodePath("CanvasLayer/Nivel")
+t_nivel = NodePath("CanvasLayer2/Nivel")
 weapon_types = Array[ExtResource("3_4mp40")]([ExtResource("4_e85mw"), ExtResource("5_gheh0"), ExtResource("6_di65y")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=723468974]
@@ -67,41 +67,39 @@ autostart = true
 [node name="Cooldown_attack" type="Timer" parent="." unique_id=388619049]
 autostart = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=556817725]
-follow_viewport_enabled = true
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1642359787]
 
-[node name="Nivel" type="Label" parent="CanvasLayer" unique_id=946811645]
+[node name="Nivel" type="Label" parent="CanvasLayer2" unique_id=946811645]
 z_index = 1
 anchors_preset = -1
-anchor_left = 0.933
-anchor_right = 0.952
-anchor_bottom = 0.029
-offset_left = -50.0
-offset_right = -6.0
-offset_bottom = 16.0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -129.0
+offset_bottom = 31.0
 grow_horizontal = 0
 text = "LVL 12"
 label_settings = ExtResource("8_n5bi1")
 
-[node name="ExpBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=675425889]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -500.0
-offset_right = 500.0
-offset_bottom = 50.0
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer2" unique_id=1684256407]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 30.0
 grow_horizontal = 2
-scale = Vector2(1.15, 0.72)
+
+[node name="ExpBar" type="TextureProgressBar" parent="CanvasLayer2/HBoxContainer" unique_id=675425889]
+layout_mode = 2
 size_flags_horizontal = 3
+nine_patch_stretch = true
 texture_under = ExtResource("9_n5bi1")
 texture_over = ExtResource("8_di65y")
 texture_progress = ExtResource("10_dfbng")
 
-[node name="UI" parent="CanvasLayer" unique_id=737447265 instance=ExtResource("4_xutah")]
-anchors_preset = 5
+[node name="UI" parent="CanvasLayer2" unique_id=737447265 instance=ExtResource("4_xutah")]
+anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.0
+offset_top = 50.0
 grow_vertical = 1
 
 [connection signal="body_entered" from="SelfDamage" to="." method="_on_self_damage_body_entered"]

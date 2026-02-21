@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bxwc0sdiyc7py" path="res://escenas/moneda.gd" id="1_ponsd"]
 [ext_resource type="Texture2D" uid="uid://ov3ct6yvox41" path="res://sprites/gemas/gema.png" id="1_q5s0n"]
+[ext_resource type="Texture2D" uid="uid://b54h0r8r08a3a" path="res://sprites/sombra.png" id="3_tr4to"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ponsd"]
 radius = 20.0
@@ -13,9 +14,17 @@ collision_layer = 8
 script = ExtResource("1_ponsd")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1240717517]
+z_index = 1
 texture = ExtResource("1_q5s0n")
 
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1046870148]
+modulate = Color(0, 0, 0, 0.717)
+position = Vector2(2.4999998, 30)
+scale = Vector2(1.515625, 1.1249999)
+texture = ExtResource("3_tr4to")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1894272172]
+visible = false
 shape = SubResource("CapsuleShape2D_ponsd")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

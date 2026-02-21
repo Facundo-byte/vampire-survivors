@@ -12,9 +12,7 @@ func _ready():
 		
 func _click(boton_selec: int):
 	if !boton_selec:
-		var escena_p = get_parent()
-		escena_p.nivel_actual += 1
-		escena_p.crear_nivel(escena_p.nivel_actual)
+		get_tree().change_scene_to_file("res://escenas/seleccionarma.tscn")
 	else:
 		get_tree().quit()
 	

@@ -8,9 +8,11 @@
 
 [node name="Fin" type="Control" unique_id=1881079880 node_paths=PackedStringArray("botones", "tiempo", "monedas", "lvl")]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_2fxai")
 botones = [NodePath("VBoxContainer/TextureButton"), NodePath("VBoxContainer/TextureButton2")]
 tiempo = [NodePath("VBoxContainer/Tiempo/Minutos"), NodePath("VBoxContainer/Tiempo/Segundos")]
@@ -90,8 +92,11 @@ stretch_mode = 3
 modulate = Color(1, 0.11207495, 0, 0.5)
 z_index = -5
 layout_mode = 1
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("5_fk5l2")
 expand_mode = 1

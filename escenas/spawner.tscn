@@ -18,10 +18,14 @@ enemy_types = Array[ExtResource("3_g2pxf")]([ExtResource("4_3hm3f"), ExtResource
 [node name="ui" type="CanvasLayer" parent="." unique_id=1003677291]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ui" unique_id=15893907]
-offset_left = 542.0
-offset_top = 56.0
-offset_right = 593.0
-offset_bottom = 96.0
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -39.5
+offset_top = 70.0
+offset_right = 39.5
+offset_bottom = 40.0
+grow_horizontal = 2
 
 [node name="Minute" type="Label" parent="ui/HBoxContainer" unique_id=355268812]
 unique_name_in_owner = true

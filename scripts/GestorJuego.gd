@@ -1,7 +1,7 @@
 # GameState.gd
 extends Node
 
-var coins: int = 54 #cant monedas totales en el juego
+var coins: int = 0 #cant monedas totales en el juego
 var game_coins: int #cantidad de monedas en la partida
 var weapon_unlocked := [true, false, false] #armas bloqueadas y desbloqueadas
 var weapon_selected := -1 #arma seleccionada

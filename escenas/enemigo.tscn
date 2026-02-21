@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://cao4x8ygl8tj3" path="res://resources/green_coin.tres" id="4_5phiq"]
 [ext_resource type="Resource" uid="uid://c5oh26v7khl7k" path="res://resources/blue_coin.tres" id="5_3owwl"]
 [ext_resource type="PackedScene" uid="uid://bdxpx1plg0yrp" path="res://escenas/cofre.tscn" id="6_r6fnk"]
+[ext_resource type="Texture2D" uid="uid://b54h0r8r08a3a" path="res://sprites/sombra.png" id="8_5phiq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r6fnk"]
 height = 38.666668
@@ -21,9 +22,17 @@ coin_droptype = Array[ExtResource("3_r6fnk")]([ExtResource("4_5phiq"), ExtResour
 chest_drop = ExtResource("6_r6fnk")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=196999150]
+z_index = 1
 scale = Vector2(0.5107422, 0.506902)
 texture = ExtResource("2_uhebs")
 
+[node name="sombra" type="Sprite2D" parent="." unique_id=2050222102]
+modulate = Color(0, 0, 0, 0.572)
+position = Vector2(2.0000002, 13.333333)
+scale = Vector2(1.1172689, 0.72047555)
+texture = ExtResource("8_5phiq")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=76298659]
+visible = false
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_r6fnk")

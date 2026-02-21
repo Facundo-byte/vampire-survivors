@@ -45,6 +45,4 @@ func get_bottom_chunk() -> Node2D:
 	return top
 
 func terminar_partida(): 
-	var ep = get_parent() 
-	ep.nivel_actual += 1
-	ep.crear_nivel(ep.nivel_actual)
+	get_tree().change_scene_to_file("res://escenas/fin.tscn")

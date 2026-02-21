@@ -3,7 +3,7 @@ extends Node2D
 @export var player: CharacterBody2D 
 @export var enemy: PackedScene 
 
-var distance: float = 650 
+var distance: float = 1000 
 var can_spawn: bool = true
 
 @export var enemy_types: Array[Enemy]
@@ -28,7 +28,7 @@ func spawn(pos: Vector2, elite: bool = false):
 	if !GestorJuego.game_running: #si ya termino la partida salgo
 		return
 		
-	if get_tree().get_node_count_in_group("enemy") >= 700: #si hay mas de 700 mobs no spawnea mas
+	if get_tree().get_node_count_in_group("enemy") >= 500: #si hay mas de 500 mobs no spawnea mas
 		can_spawn = false
 	else: can_spawn = true
 	

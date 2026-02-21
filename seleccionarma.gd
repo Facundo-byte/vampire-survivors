@@ -39,10 +39,8 @@ func _ready():
 func _seleccionada(tipoarma: int):
 	if weapon_type[tipoarma].price > GestorJuego.coins: 
 		return
-	var escena_padre = get_parent()
 	
 	GestorJuego.coins -= weapon_type[tipoarma].price
 	weapon_type[tipoarma].price = 0
 	GestorJuego.start_game(tipoarma) #le asigno el tipo de arma
-	escena_padre.nivel_actual += 1 #hago que el numero de escena cambie
-	escena_padre.crear_nivel(escena_padre.nivel_actual) #cargo la nueva escena
+	get_tree().change_scene_to_file("res://escenas/escenaprincipal.tscn")

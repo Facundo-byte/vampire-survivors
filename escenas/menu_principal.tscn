@@ -18,9 +18,11 @@ outline_color = Color(1, 0.32086813, 0, 1)
 
 [node name="menu_principal" type="Control" unique_id=1033951873 node_paths=PackedStringArray("botones", "b_monedas")]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_qf1q6")
 botones = [NodePath("VBoxContainer2/Jugar"), NodePath("VBoxContainer2/Salir")]
 b_monedas = NodePath("HBoxContainer/Label")

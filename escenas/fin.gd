@@ -17,11 +17,7 @@ func _click(tipo: int):
 	var gestor = get_parent()
 	print(tipo)
 	if tipo == 0:
-		gestor.nivel_actual = 2
-		gestor.crear_nivel(gestor.nivel_actual)
-		print("uno")
+		get_tree().change_scene_to_file("res://escenas/seleccionarma.tscn")
 	else: 
-		gestor.nivel_actual = 1 
-		gestor.crear_nivel(gestor.nivel_actual)
-		print("dos")
+		get_tree().change_scene_to_file("res://escenas/menu_principal.tscn")
 		

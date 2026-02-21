@@ -11,10 +11,11 @@
 
 [node name="seleccionarma" type="Control" unique_id=866733234 node_paths=PackedStringArray("arma1", "arma2", "arma3", "precio1", "precio2", "container1", "container2", "b_monedas")]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 2.0
-offset_right = 1152.0
-offset_bottom = 650.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_tbupu")
 weapon_type = Array[ExtResource("2_cufp4")]([ExtResource("3_0rh85"), ExtResource("4_rr4ib"), ExtResource("5_0rh85")])
 arma1 = NodePath("VBoxContainer/Arma1/Arma1")

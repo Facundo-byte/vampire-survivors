@@ -4,8 +4,6 @@ extends Node2D
 var nivel_actual: int = 1
 var _nivel_instanciado: Node 
 
-var chosen: bool #si eligio o no un arma
-
 #sonidos muerte
 @export var sonido_mjugador: AudioStreamPlayer2D
 
@@ -20,10 +18,3 @@ func crear_nivel(numero_nivel: int):
 	
 func _eliminar_nivel():
 	_nivel_instanciado.queue_free()
-
-func _reiniciar_nivel():
-	_eliminar_nivel()
-	crear_nivel.call_deferred(nivel_actual)
-
-func _ir_al_menu():
-	get_tree().change_scene_to_file("res://escenas/menu_principal.tscn")

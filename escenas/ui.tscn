@@ -18,9 +18,14 @@ weapon1 = NodePath("HBoxContainer/TextureRect")
 l_monedas = NodePath("HBoxContainer/HBoxContainer/monedas")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=591925034]
-layout_mode = 0
-offset_right = 1150.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -575.0
+offset_right = 575.0
 offset_bottom = 82.0
+grow_horizontal = 2
 theme_override_constants/separation = 954
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1484978490]
