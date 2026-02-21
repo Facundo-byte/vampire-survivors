@@ -6,105 +6,151 @@
 [ext_resource type="Resource" uid="uid://bc4xb8grr338g" path="res://resources/weapons/knife.tres" id="4_rr4ib"]
 [ext_resource type="Resource" uid="uid://dnrwslb4okonr" path="res://resources/weapons/fireball.tres" id="5_0rh85"]
 [ext_resource type="Texture2D" uid="uid://cfgdk6vmr0op5" path="res://sprites/armas/bola.png" id="5_ikh80"]
+[ext_resource type="LabelSettings" uid="uid://dn1uemkdwkaew" path="res://font_styles/texto_pixel.tres" id="7_ikh80"]
+[ext_resource type="Texture2D" uid="uid://bow27se15kn0n" path="res://sprites/monedas.png" id="8_0a6fv"]
 
-[node name="seleccionarma" type="Control" unique_id=866733234 node_paths=PackedStringArray("arma1", "arma2", "arma3")]
+[node name="seleccionarma" type="Control" unique_id=866733234 node_paths=PackedStringArray("arma1", "arma2", "arma3", "precio1", "precio2", "container1", "container2", "b_monedas")]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_left = 2.0
+offset_right = 1152.0
+offset_bottom = 650.0
 script = ExtResource("1_tbupu")
 weapon_type = Array[ExtResource("2_cufp4")]([ExtResource("3_0rh85"), ExtResource("4_rr4ib"), ExtResource("5_0rh85")])
 arma1 = NodePath("VBoxContainer/Arma1/Arma1")
 arma2 = NodePath("VBoxContainer/Arma2/Arma2")
 arma3 = NodePath("VBoxContainer/Arma3/Arma3")
+precio1 = NodePath("VBoxContainer/Arma1/Coste/Precio")
+precio2 = NodePath("VBoxContainer/Arma3/Coste/Precio")
+container1 = NodePath("VBoxContainer/Arma1/Coste")
+container2 = NodePath("VBoxContainer/Arma3/Coste")
+b_monedas = NodePath("HBoxContainer/HBoxContainer/monedas")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=243431138]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2121341024]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 72.0
+grow_horizontal = 2
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=622613868]
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=622613868]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Selecciona tu arma"
+label_settings = ExtResource("7_ikh80")
+horizontal_alignment = 2
 
-[node name="Arma1" type="HBoxContainer" parent="VBoxContainer" unique_id=800174185]
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=777138792]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=1914507844]
+layout_mode = 2
+
+[node name="monedas" type="Label" parent="HBoxContainer/HBoxContainer" unique_id=1437321067]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+text = "3"
+label_settings = ExtResource("7_ikh80")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/HBoxContainer" unique_id=630513550]
+layout_mode = 2
+texture = ExtResource("8_0a6fv")
+stretch_mode = 3
+
+[node name="VBoxContainer" type="HBoxContainer" parent="." unique_id=277332608]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -356.0
+offset_top = -83.0
+offset_right = 377.0
+offset_bottom = 88.125
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 127
+alignment = 1
+
+[node name="Arma1" type="VBoxContainer" parent="VBoxContainer" unique_id=1300908593]
 layout_mode = 2
 size_flags_vertical = 4
 
 [node name="Arma1" type="TextureButton" parent="VBoxContainer/Arma1" unique_id=409660071]
 layout_mode = 2
+size_flags_horizontal = 4
 texture_normal = ExtResource("5_ikh80")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Arma1" unique_id=187826665]
+[node name="Nombre" type="Label" parent="VBoxContainer/Arma1" unique_id=1970022747]
 layout_mode = 2
+text = "Bola Magica"
+label_settings = ExtResource("7_ikh80")
 
-[node name="Danio" type="Label" parent="VBoxContainer/Arma1/VBoxContainer" unique_id=1970022747]
+[node name="Coste" type="HBoxContainer" parent="VBoxContainer/Arma1" unique_id=921260666]
 layout_mode = 2
-text = "Danio: 2"
+alignment = 1
 
-[node name="Velocidad" type="Label" parent="VBoxContainer/Arma1/VBoxContainer" unique_id=983820707]
+[node name="Precio" type="Label" parent="VBoxContainer/Arma1/Coste" unique_id=1871838086]
 layout_mode = 2
-text = "Velocidad: 2"
+text = "50"
+label_settings = ExtResource("7_ikh80")
 
-[node name="Cooldown" type="Label" parent="VBoxContainer/Arma1/VBoxContainer" unique_id=158164]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Arma1/Coste" unique_id=77339624]
 layout_mode = 2
-text = "Cooldown: 2"
+texture = ExtResource("8_0a6fv")
 
-[node name="Autoaim" type="Label" parent="VBoxContainer/Arma1/VBoxContainer" unique_id=901668189]
-layout_mode = 2
-text = "Autoaim: Si"
-
-[node name="Arma2" type="HBoxContainer" parent="VBoxContainer" unique_id=235497425]
+[node name="Arma2" type="VBoxContainer" parent="VBoxContainer" unique_id=1279098033]
 layout_mode = 2
 size_flags_vertical = 4
 
 [node name="Arma2" type="TextureButton" parent="VBoxContainer/Arma2" unique_id=2119767720]
 layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_ikh80")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Arma2" unique_id=616106823]
+[node name="Nombre" type="Label" parent="VBoxContainer/Arma2" unique_id=515078400]
 layout_mode = 2
+text = "Cuchillos"
+label_settings = ExtResource("7_ikh80")
 
-[node name="Danio" type="Label" parent="VBoxContainer/Arma2/VBoxContainer" unique_id=515078400]
-layout_mode = 2
-text = "Danio: 2"
-
-[node name="Velocidad" type="Label" parent="VBoxContainer/Arma2/VBoxContainer" unique_id=1834953826]
-layout_mode = 2
-text = "Velocidad: 2"
-
-[node name="Cooldown" type="Label" parent="VBoxContainer/Arma2/VBoxContainer" unique_id=901451843]
-layout_mode = 2
-text = "Cooldown: 2"
-
-[node name="Autoaim" type="Label" parent="VBoxContainer/Arma2/VBoxContainer" unique_id=699570005]
-layout_mode = 2
-text = "Autoaim: Si"
-
-[node name="Arma3" type="HBoxContainer" parent="VBoxContainer" unique_id=1810365401]
+[node name="Arma3" type="VBoxContainer" parent="VBoxContainer" unique_id=620258511]
 layout_mode = 2
 size_flags_vertical = 4
 
 [node name="Arma3" type="TextureButton" parent="VBoxContainer/Arma3" unique_id=348403518]
 layout_mode = 2
+size_flags_horizontal = 4
 texture_normal = ExtResource("5_ikh80")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Arma3" unique_id=1401875857]
+[node name="Nombre" type="Label" parent="VBoxContainer/Arma3" unique_id=1692626700]
 layout_mode = 2
+text = "Bola de Fuego"
+label_settings = ExtResource("7_ikh80")
 
-[node name="Danio" type="Label" parent="VBoxContainer/Arma3/VBoxContainer" unique_id=1692626700]
+[node name="Coste" type="HBoxContainer" parent="VBoxContainer/Arma3" unique_id=204347433]
 layout_mode = 2
-text = "Danio: 2"
+alignment = 1
 
-[node name="Velocidad" type="Label" parent="VBoxContainer/Arma3/VBoxContainer" unique_id=427555756]
+[node name="Precio" type="Label" parent="VBoxContainer/Arma3/Coste" unique_id=356692800]
 layout_mode = 2
-text = "Velocidad: 2"
+text = "50"
+label_settings = ExtResource("7_ikh80")
 
-[node name="Cooldown" type="Label" parent="VBoxContainer/Arma3/VBoxContainer" unique_id=1513626215]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Arma3/Coste" unique_id=216071241]
 layout_mode = 2
-text = "Cooldown: 2"
+texture = ExtResource("8_0a6fv")
 
-[node name="Autoaim" type="Label" parent="VBoxContainer/Arma3/VBoxContainer" unique_id=2095979846]
-layout_mode = 2
-text = "Autoaim: Si"
+[node name="TextureRect" type="ColorRect" parent="." unique_id=374978918]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0, 0.1428257, 0.58400005)

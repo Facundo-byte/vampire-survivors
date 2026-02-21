@@ -10,3 +10,4 @@ class_name weapon
 @export var sprite: Texture
 @export var amount: int
 @export var scale: float
+@export var price: int

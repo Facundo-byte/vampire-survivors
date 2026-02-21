@@ -20,8 +20,14 @@ var second: int:
 			second -= 60 
 			minute += 1
 		%Second.text = str(second).lpad(2, '0')
+
+func _ready():
+	add_to_group("spawner")
 		
 func spawn(pos: Vector2, elite: bool = false): 
+	if !GestorJuego.game_running: #si ya termino la partida salgo
+		return
+		
 	if get_tree().get_node_count_in_group("enemy") >= 700: #si hay mas de 700 mobs no spawnea mas
 		can_spawn = false
 	else: can_spawn = true
@@ -37,7 +43,7 @@ func spawn(pos: Vector2, elite: bool = false):
 		enemy_instance.elite = true 
 		enemy_instance.health = enemy_instance.health + 10
 		
-	get_tree().current_scene.add_child(enemy_instance)
+	get_parent().add_child(enemy_instance)
 	
 
 func get_random_position() -> Vector2: 
@@ -48,10 +54,16 @@ func amount(number: int = 1):
 		spawn(get_random_position())
 
 func _on_timer_timeout() -> void:
+	if !GestorJuego.game_running: #si ya termino la partida salgo
+		return
 	second += 1 
 	
 func _on_pattern_timeout() -> void:
+	if !GestorJuego.game_running: #si ya termino la partida salgo
+		return
 	amount(second % 100)
 
 func _on_elite_timeout() -> void:
+	if !GestorJuego.game_running: #si ya termino la partida salgo
+		return
 	spawn(get_random_position(), true)

@@ -33,6 +33,8 @@ func _ready():
 	player_reference = get_tree().get_first_node_in_group("player")
 	
 func _physics_process(delta):
+	if !GestorJuego.game_running: #si ya termino la partida salgo
+		return
 	separation = (player_reference.position - position).length()
 	if separation >= 700 and not elite: 
 		queue_free()

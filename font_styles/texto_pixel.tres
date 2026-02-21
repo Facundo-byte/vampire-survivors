@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://dn1uemkdwkaew"]
+
+[sub_resource type="SystemFont" id="SystemFont_8b33q"]
+font_names = PackedStringArray("Pixel Operator HB SC")
+
+[resource]
+font = SubResource("SystemFont_8b33q")
+font_size = 30
+outline_size = 3
+outline_color = Color(0, 0, 0, 0.476)

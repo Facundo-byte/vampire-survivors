@@ -1,49 +1,82 @@
 [gd_scene format=3 uid="uid://dgqkdljk3iwkn"]
 
-[ext_resource type="Texture2D" uid="uid://dr2hrn8ki2ptj" path="res://sprites/botones/Jugar.png" id="1_arcut"]
 [ext_resource type="Script" uid="uid://dw7s5hwlf5xw1" path="res://escenas/menu_principal.gd" id="1_qf1q6"]
-[ext_resource type="Texture2D" uid="uid://bpyrysdyeuon4" path="res://sprites/botones/Salir.png" id="2_qf1q6"]
+[ext_resource type="Texture2D" uid="uid://cvhwaf142xasd" path="res://sprites/botones/boton_comenzar.png" id="2_qf1q6"]
+[ext_resource type="Texture2D" uid="uid://ul3hv63jltp4" path="res://sprites/botones/boton_salir.png" id="3_p8sbp"]
+[ext_resource type="Texture2D" uid="uid://3cptpjfuh1v7" path="res://sprites/8ae8d8b08324a5a0a2ea5aca07ece84319df965330b94afa.png" id="4_p8sbp"]
 
-[node name="menu_principal" type="Control" unique_id=1033951873 node_paths=PackedStringArray("botones")]
+[sub_resource type="SystemFont" id="SystemFont_8b33q"]
+font_names = PackedStringArray("Pixel Operator HB SC")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_olkao"]
+font = SubResource("SystemFont_8b33q")
+font_size = 103
+font_color = Color(1, 0.7547807, 0, 1)
+outline_size = 9
+outline_color = Color(1, 0.32086813, 0, 1)
+
+[node name="menu_principal" type="Control" unique_id=1033951873 node_paths=PackedStringArray("botones", "b_monedas")]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 538.0
-offset_top = 282.0
-offset_right = 538.0
-offset_bottom = 282.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
 script = ExtResource("1_qf1q6")
-botones = [NodePath("HBoxContainer/Jugar"), NodePath("HBoxContainer/Salir")]
+botones = [NodePath("VBoxContainer2/Jugar"), NodePath("VBoxContainer2/Salir")]
+b_monedas = NodePath("HBoxContainer/Label")
 
-[node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=1790916516]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2128021370]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -30.0
+offset_bottom = 28.0
+grow_horizontal = 0
+pivot_offset = Vector2(3.045, 12.625)
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=685134411]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1790916516]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -335.0
-offset_top = -99.0
-offset_right = 392.0
-offset_bottom = 130.0
+offset_left = -457.0
+offset_top = -114.5
+offset_right = 457.0
+offset_bottom = 114.5
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="HBoxContainer" unique_id=1409697262]
+[node name="Label" type="Label" parent="VBoxContainer2" unique_id=1409697262]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "LOS PAPUS SURVIVORS"
+label_settings = SubResource("LabelSettings_olkao")
 
-[node name="Jugar" type="TextureButton" parent="HBoxContainer" unique_id=1418020790]
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("1_arcut")
-
-[node name="Salir" type="TextureButton" parent="HBoxContainer" unique_id=501289659]
+[node name="Jugar" type="TextureButton" parent="VBoxContainer2" unique_id=1418020790]
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("2_qf1q6")
+
+[node name="Salir" type="TextureButton" parent="VBoxContainer2" unique_id=501289659]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_p8sbp")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=392090097]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_p8sbp")
+expand_mode = 1

@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://domuajdgjdt7h"]
+
+[ext_resource type="Script" uid="uid://bfv0et3njbs85" path="res://escenas/fin.gd" id="1_2fxai"]
+[ext_resource type="LabelSettings" uid="uid://dn1uemkdwkaew" path="res://font_styles/texto_pixel.tres" id="2_fk5l2"]
+[ext_resource type="Texture2D" uid="uid://c22q4wcrwfpxb" path="res://sprites/botones/boton_reintentar.png" id="3_lr081"]
+[ext_resource type="Texture2D" uid="uid://b1fyympgu62du" path="res://sprites/botones/boton_menu.png" id="4_6mkn0"]
+[ext_resource type="Texture2D" uid="uid://3cptpjfuh1v7" path="res://sprites/8ae8d8b08324a5a0a2ea5aca07ece84319df965330b94afa.png" id="5_fk5l2"]
+
+[node name="Fin" type="Control" unique_id=1881079880 node_paths=PackedStringArray("botones", "tiempo", "monedas", "lvl")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_2fxai")
+botones = [NodePath("VBoxContainer/TextureButton"), NodePath("VBoxContainer/TextureButton2")]
+tiempo = [NodePath("VBoxContainer/Tiempo/Minutos"), NodePath("VBoxContainer/Tiempo/Segundos")]
+monedas = NodePath("VBoxContainer/HBoxContainer/Coins/Monedas")
+lvl = NodePath("VBoxContainer/HBoxContainer/Nivel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=56502811]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.5
+offset_top = -141.5
+offset_right = 135.5
+offset_bottom = 141.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 19
+alignment = 1
+
+[node name="Fin" type="Label" parent="VBoxContainer" unique_id=2088244942]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "FIN DE LA PARTIDA"
+label_settings = ExtResource("2_fk5l2")
+
+[node name="Tiempo" type="HBoxContainer" parent="VBoxContainer" unique_id=518002915]
+layout_mode = 2
+alignment = 1
+
+[node name="Minutos" type="Label" parent="VBoxContainer/Tiempo" unique_id=1611451219]
+layout_mode = 2
+text = "23"
+label_settings = ExtResource("2_fk5l2")
+
+[node name="Label2" type="Label" parent="VBoxContainer/Tiempo" unique_id=988787257]
+layout_mode = 2
+text = ":"
+label_settings = ExtResource("2_fk5l2")
+
+[node name="Segundos" type="Label" parent="VBoxContainer/Tiempo" unique_id=2048127046]
+layout_mode = 2
+text = "12"
+label_settings = ExtResource("2_fk5l2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=782015406]
+layout_mode = 2
+theme_override_constants/separation = 118
+
+[node name="Coins" type="HBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=590202654]
+layout_mode = 2
+
+[node name="Monedas" type="Label" parent="VBoxContainer/HBoxContainer/Coins" unique_id=1417209721]
+layout_mode = 2
+text = "Monedas: "
+label_settings = ExtResource("2_fk5l2")
+
+[node name="Nivel" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=876015831]
+layout_mode = 2
+text = "LVL: 1"
+label_settings = ExtResource("2_fk5l2")
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer" unique_id=1664523933]
+layout_mode = 2
+texture_normal = ExtResource("3_lr081")
+stretch_mode = 3
+
+[node name="TextureButton2" type="TextureButton" parent="VBoxContainer" unique_id=287346160]
+layout_mode = 2
+texture_normal = ExtResource("4_6mkn0")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=273689251]
+modulate = Color(1, 0.11207495, 0, 0.5)
+z_index = -5
+layout_mode = 1
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+texture = ExtResource("5_fk5l2")
+expand_mode = 1

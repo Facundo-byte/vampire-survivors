@@ -3,8 +3,10 @@ extends CharacterBody2D
 @export var animacion : AnimatedSprite2D
 @export var bar: ProgressBar
 @export var attack: PackedScene
-@export var expbar: ProgressBar #barra de experiencia
+@export var expbar: TextureProgressBar #barra de experiencia
 @export var cooldown_atq: Timer #tiempo de espera para atacar
+@export var t_nivel: Label
+@export var nivel: int = 1
 
 var weapon_sel: int	
 @export var weapon_types: Array[weapon] #array con los tipos
@@ -25,6 +27,7 @@ var nearest_enemy: CharacterBody2D #enemigo mas cercano (para el autoaim)
 var nearest_enemy_distance: float = INF 
 
 func _ready() -> void:
+	t_nivel.text = "LVL " + str(nivel)
 	add_to_group("player")
 
 func set_weapon(id: int): #le digo que arma va a usar y reseteo el cooldown en base a ella
@@ -60,6 +63,19 @@ func _process(delta):
 func take_damage(amount): 
 	health -= amount 
 	print(amount)
+	if !health:
+		var ui = get_tree().get_first_node_in_group("uiweapon")
+		var spawner = get_tree().get_first_node_in_group("spawner")
+		
+		GestorJuego.minutos = spawner.minute
+		GestorJuego.segundos = spawner.second
+		
+		GestorJuego.coins += ui.monedas
+		GestorJuego.game_coins = ui.monedas
+		
+		GestorJuego.level = nivel 
+		
+		GestorJuego.end_game()
 
 func _on_self_damage_body_entered(body):
 	take_damage(body.damage)
@@ -70,7 +86,7 @@ func _on_timer_timeout() -> void:
 
 func _on_attack_timer_timeout() -> void:
 	projectiles.clear()
-	
+		
 	for i in weapon_stats.amount:
 		var p = attack.instantiate()
 		p.dmg = weapon_stats.damage
@@ -91,7 +107,7 @@ func _on_attack_timer_timeout() -> void:
 			var enemy = enemies[i % enemies.size()]
 			var p = projectiles[i]
 			p.direction = (enemy.global_position - p.global_position).normalized()
-			get_tree().current_scene.add_child(p)
+			get_parent().add_child(p)
 				
 	elif weapon_sel == 1: #si es el cuchillo va hacia donde se mueva el jugador
 		for projectile in projectiles:
@@ -101,7 +117,7 @@ func _on_attack_timer_timeout() -> void:
 				projectile.direction = ant_move_dir
 			else: 
 				projectile.direction = Vector2.RIGHT
-			get_tree().current_scene.add_child(projectile)
+			get_parent().add_child(projectile)
 			
 	else:
 		if nearest_enemy_distance != INF:
@@ -117,7 +133,7 @@ func _on_attack_timer_timeout() -> void:
 				
 				var p = projectiles[i]
 				p.direction = base_dir.rotated(angle)
-				get_tree().current_scene.add_child(p)
+				get_parent().add_child(p)
 
 func get_enemies_sorted_by_distance() -> Array: #obtengo todos los enemigos y los ordeno por la distancia
 	var enemies = get_tree().get_nodes_in_group("enemy")
@@ -129,6 +145,8 @@ func get_enemies_sorted_by_distance() -> Array: #obtengo todos los enemigos y lo
 func add_exp(experience: float): 
 	expbar.value += experience
 	if expbar.value >= expbar.max_value:
+		nivel += 1
+		t_nivel.text = "LVL " + str(nivel)
 		var levelupmenu = get_tree().get_first_node_in_group("levelupscreen")
 		levelupmenu.visible = true
 		levelupmenu.aplicarmejora(weapon_sel)

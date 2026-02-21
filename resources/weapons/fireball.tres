@@ -13,4 +13,5 @@ cooldown = 3.0
 sprite = ExtResource("2_jymeo")
 amount = 3
 scale = 2.0
+price = 100
 metadata/_custom_type_script = "uid://bnoh8d8p70njt"

@@ -55,9 +55,6 @@ sources/2 = SubResource("TileSetAtlasSource_43uub")
 script = ExtResource("1_ylyhu")
 chunks = [NodePath("chunk1"), NodePath("chunk2"), NodePath("chunk3")]
 
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=646415051]
-repeat_size = Vector2(0, 2112)
-
 [node name="Jugador" parent="." unique_id=1324203074 instance=ExtResource("2_oh5vl")]
 z_index = 1
 

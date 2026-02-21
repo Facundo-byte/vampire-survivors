@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://d244hwdsxo4ss" path="res://escenas/ui.tscn" id="4_xutah"]
 [ext_resource type="Resource" uid="uid://bc4xb8grr338g" path="res://resources/weapons/knife.tres" id="5_gheh0"]
 [ext_resource type="Resource" uid="uid://dnrwslb4okonr" path="res://resources/weapons/fireball.tres" id="6_di65y"]
+[ext_resource type="Texture2D" uid="uid://ypogcvfwmhq4" path="res://sprites/barra_exp_transparente.png" id="8_di65y"]
+[ext_resource type="LabelSettings" uid="uid://dn1uemkdwkaew" path="res://font_styles/texto_pixel.tres" id="8_n5bi1"]
+[ext_resource type="Texture2D" uid="uid://c63y7p5ydjwi6" path="res://sprites/barra_exp_vacia.png" id="9_n5bi1"]
+[ext_resource type="Texture2D" uid="uid://hvq87qcgdnh" path="res://sprites/barra_exp_llena.png" id="10_dfbng"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e85mw"]
 radius = 25.019993
@@ -15,14 +19,18 @@ radius = 25.019993
 [sub_resource type="CircleShape2D" id="CircleShape2D_jpodt"]
 radius = 25.0
 
-[node name="Jugador" type="CharacterBody2D" unique_id=631112022 node_paths=PackedStringArray("animacion", "bar", "expbar", "cooldown_atq")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mp40"]
+bg_color = Color(1, 0, 0, 1)
+
+[node name="Jugador" type="CharacterBody2D" unique_id=631112022 node_paths=PackedStringArray("animacion", "bar", "expbar", "cooldown_atq", "t_nivel")]
 collision_mask = 4
 script = ExtResource("1_ovq70")
 animacion = NodePath("AnimatedSprite2D")
 bar = NodePath("Health")
 attack = ExtResource("3_njcx7")
-expbar = NodePath("Camera2D/ExpBar")
+expbar = NodePath("CanvasLayer/ExpBar")
 cooldown_atq = NodePath("Cooldown_attack")
+t_nivel = NodePath("CanvasLayer/Nivel")
 weapon_types = Array[ExtResource("3_4mp40")]([ExtResource("4_e85mw"), ExtResource("5_gheh0"), ExtResource("6_di65y")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=723468974]
@@ -46,32 +54,55 @@ unique_name_in_owner = true
 offset_left = -68.0
 offset_top = 31.0
 offset_right = 79.0
-offset_bottom = 58.0
+offset_bottom = 45.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_4mp40")
 value = 100.0
+show_percentage = false
 
 [node name="Timer" type="Timer" parent="." unique_id=1819686010]
 autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=8902975]
 
-[node name="ExpBar" type="ProgressBar" parent="Camera2D" unique_id=1973609064]
+[node name="Cooldown_attack" type="Timer" parent="." unique_id=388619049]
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=556817725]
+follow_viewport_enabled = true
+
+[node name="Nivel" type="Label" parent="CanvasLayer" unique_id=946811645]
+z_index = 1
+anchors_preset = -1
+anchor_left = 0.933
+anchor_right = 0.952
+anchor_bottom = 0.029
+offset_left = -50.0
+offset_right = -6.0
+offset_bottom = 16.0
+grow_horizontal = 0
+text = "LVL 12"
+label_settings = ExtResource("8_n5bi1")
+
+[node name="ExpBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=675425889]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -575.0
-offset_top = -322.0
-offset_right = 574.0
-offset_bottom = -274.0
+offset_left = -500.0
+offset_right = 500.0
+offset_bottom = 50.0
 grow_horizontal = 2
+scale = Vector2(1.15, 0.72)
+size_flags_horizontal = 3
+texture_under = ExtResource("9_n5bi1")
+texture_over = ExtResource("8_di65y")
+texture_progress = ExtResource("10_dfbng")
 
-[node name="UI" parent="Camera2D" unique_id=737447265 instance=ExtResource("4_xutah")]
-offset_left = -564.0
-offset_top = -266.0
-offset_right = -564.0
-offset_bottom = -266.0
-
-[node name="Cooldown_attack" type="Timer" parent="." unique_id=388619049]
-autostart = true
+[node name="UI" parent="CanvasLayer" unique_id=737447265 instance=ExtResource("4_xutah")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+grow_vertical = 1
 
 [connection signal="body_entered" from="SelfDamage" to="." method="_on_self_damage_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

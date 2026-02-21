@@ -6,7 +6,7 @@ extends Node2D
 var CHUNK_HEIGHT : int = 2112
 var h_mult: int = 1
 var current_chunk := 0
-var weapon_chosen: int 
+var weapon_chosen: int = GestorJuego.weapon_selected 
 
 func _ready():
 	player.set_weapon(weapon_chosen) #le selecciono el arma al jugador
@@ -15,6 +15,9 @@ func _ready():
 	chunks[2].position.y = 1 * CHUNK_HEIGHT
 
 func _physics_process(delta):
+	if GestorJuego.game_running == false: 
+		terminar_partida()
+		
 	var new_chunk = int(floor(player.position.y / CHUNK_HEIGHT))
 	if new_chunk > current_chunk:
 		# bajando → mover el de arriba hacia abajo
@@ -40,3 +43,8 @@ func get_bottom_chunk() -> Node2D:
 		if c.position.y > top.position.y:
 			top = c
 	return top
+
+func terminar_partida(): 
+	var ep = get_parent() 
+	ep.nivel_actual += 1
+	ep.crear_nivel(ep.nivel_actual)

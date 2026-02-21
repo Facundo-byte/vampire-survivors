@@ -4,7 +4,6 @@ extends Node2D
 var nivel_actual: int = 1
 var _nivel_instanciado: Node 
 
-var weapon_chosen: int #arma elegida
 var chosen: bool #si eligio o no un arma
 
 #sonidos muerte
@@ -12,22 +11,11 @@ var chosen: bool #si eligio o no un arma
 
 func _ready() -> void:
 	crear_nivel(nivel_actual)
-	#si el jugador muere cargo derrota
-	#ControladorGlobal.jugador_muerto.connect(_cargar_fin.bind(1, jugador, enemigo))
-	#si el enemigo muere cargo victoria
-	#ControladorGlobal.enemigo_muerto.connect(_cargar_fin.bind(2, jugador, enemigo))
-
-func _process(float) -> void:
-	if chosen: 
-		crear_nivel(nivel_actual + 1)
-		chosen = false
 	
 func crear_nivel(numero_nivel: int):
 	if _nivel_instanciado:
 		_eliminar_nivel()
 	_nivel_instanciado = niveles[numero_nivel - 1].instantiate()
-	if chosen: 
-		_nivel_instanciado.weapon_chosen = weapon_chosen
 	add_child(_nivel_instanciado)
 	
 func _eliminar_nivel():
@@ -38,4 +26,4 @@ func _reiniciar_nivel():
 	crear_nivel.call_deferred(nivel_actual)
 
 func _ir_al_menu():
-	get_tree().change_scene_to_file("res://escenas/menus/menus.tscn")
+	get_tree().change_scene_to_file("res://escenas/menu_principal.tscn")
