@@ -36,7 +36,7 @@ func _physics_process(delta):
 	if !GestorJuego.game_running: #si ya termino la partida salgo
 		return
 	separation = (player_reference.position - position).length()
-	if separation >= 1050 and not elite: 
+	if separation >= 1250 and not elite: 
 		queue_free()
 	
 	if separation < player_reference.nearest_enemy_distance: 

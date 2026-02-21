@@ -3,7 +3,7 @@ extends Node2D
 @export var player: CharacterBody2D 
 @export var enemy: PackedScene 
 
-var distance: float = 1000 
+var distance: float = 1200 
 var can_spawn: bool = true
 
 @export var enemy_types: Array[Enemy]

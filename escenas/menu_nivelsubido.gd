@@ -17,27 +17,35 @@ func _ready():
 		b.pressed.connect(_click.bind(b))	
 
 func aplicarmejora(weapon_sent: int):
-	var stats: Array[String] = ["damage", "speed", "cooldown", "amount"]
+	var stats := ["damage", "speed", "cooldown", "amount"]
 	var random_stat: Array[String] = []
+
+	var stat_count := {} # cuenta cuántas veces sale cada stat
 	
 	var stat_textures := {
-	"damage": tex_damage,
-	"speed": tex_speed,
-	"cooldown": tex_cooldown,
-	"amount": tex_amount
-}
-	
-	for i in range(3):
-		random_stat.append(stats.pick_random()) #pickeo stat
-	
+		"damage": tex_damage,
+		"speed": tex_speed,
+		"cooldown": tex_cooldown,
+		"amount": tex_amount
+	}
+
+	while random_stat.size() < 3:
+		var pick = stats.pick_random()
+
+		if not stat_count.has(pick):
+			stat_count[pick] = 0
+
+		# permitimos como máximo 2 repeticiones
+		if stat_count[pick] < 2:
+			random_stat.append(pick)
+			stat_count[pick] += 1
+
 	for i in range(3):
 		var stat := random_stat[i]
-
 		mejoras[i].set_meta("mejora", stat)
 		mejoras[i].texture_normal = stat_textures[stat]
-	
-	weapon_sel = weapon_sent
 
+	weapon_sel = weapon_sent
 
 func _despausar():
 	get_tree().paused = false 
