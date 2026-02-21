@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://c7vxbaducm23b"]
 
 [ext_resource type="Script" uid="uid://c2pc5mjtb1o0u" path="res://escenas/menu_nivelsubido.gd" id="1_81ry3"]
+[ext_resource type="Texture2D" uid="uid://f02w7wq68qjj" path="res://sprites/botones/danio.png" id="2_ynl14"]
+[ext_resource type="Texture2D" uid="uid://c8dv4epxashrr" path="res://sprites/botones/velocidad.png" id="3_chmcc"]
+[ext_resource type="Texture2D" uid="uid://brf7b2dwajjvj" path="res://sprites/botones/cooldown.png" id="4_y528t"]
+[ext_resource type="Texture2D" uid="uid://b0nqmas2ma04y" path="res://sprites/botones/cantidad.png" id="5_yqo5y"]
 
 [node name="levelup" type="Control" unique_id=1574013335 node_paths=PackedStringArray("mejoras")]
 layout_mode = 3
@@ -11,6 +15,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_81ry3")
 mejoras = [NodePath("VboxContainer/Mejora1"), NodePath("VboxContainer/Mejora2"), NodePath("VboxContainer/Mejora3")]
+tex_damage = ExtResource("2_ynl14")
+tex_speed = ExtResource("3_chmcc")
+tex_cooldown = ExtResource("4_y528t")
+tex_amount = ExtResource("5_yqo5y")
 
 [node name="VboxContainer" type="VBoxContainer" parent="." unique_id=1333733968]
 layout_mode = 1
@@ -28,14 +36,19 @@ grow_vertical = 2
 theme_override_constants/separation = 13
 alignment = 1
 
-[node name="Mejora1" type="Button" parent="VboxContainer" unique_id=745927032]
+[node name="Mejora1" type="TextureButton" parent="VboxContainer" unique_id=1427603992]
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_yqo5y")
 
-[node name="Mejora2" type="Button" parent="VboxContainer" unique_id=1632258436]
+[node name="Mejora2" type="TextureButton" parent="VboxContainer" unique_id=1065845620]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
+texture_normal = ExtResource("2_ynl14")
 
-[node name="Mejora3" type="Button" parent="VboxContainer" unique_id=387791456]
+[node name="Mejora3" type="TextureButton" parent="VboxContainer" unique_id=971820537]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
+texture_normal = ExtResource("3_chmcc")

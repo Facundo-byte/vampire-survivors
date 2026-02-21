@@ -1,6 +1,11 @@
 extends Control
 
-@export var mejoras: Array[Button]
+@export var mejoras: Array[TextureButton]
+
+@export var tex_damage: Texture2D
+@export var tex_speed: Texture2D
+@export var tex_cooldown: Texture2D
+@export var tex_amount: Texture2D
 
 var weapon_sel: int
 
@@ -9,17 +14,27 @@ func _ready():
 	#al clickear un boton 
 	
 	for b in mejoras:
-		b.pressed.connect(_click.bind(b, weapon_sel))	
+		b.pressed.connect(_click.bind(b))	
 
 func aplicarmejora(weapon_sent: int):
 	var stats: Array[String] = ["damage", "speed", "cooldown", "amount"]
 	var random_stat: Array[String] = []
 	
+	var stat_textures := {
+	"damage": tex_damage,
+	"speed": tex_speed,
+	"cooldown": tex_cooldown,
+	"amount": tex_amount
+}
+	
 	for i in range(3):
 		random_stat.append(stats.pick_random()) #pickeo stat
 	
 	for i in range(3):
-		mejoras[i].text = random_stat[i] #texto en cada boton
+		var stat := random_stat[i]
+
+		mejoras[i].set_meta("mejora", stat)
+		mejoras[i].texture_normal = stat_textures[stat]
 	
 	weapon_sel = weapon_sent
 
@@ -28,8 +43,9 @@ func _despausar():
 	get_tree().paused = false 
 	visible = false
 
-func _click(boton: Button, weapon_sel: int):
-	var mejora := boton.text
+func _click(boton: TextureButton):
+	var mejora : String = boton.get_meta("mejora")
+	
 	var jugador = get_tree().get_first_node_in_group("player")
 	var p = jugador.weapon_stats
 	
