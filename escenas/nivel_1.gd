@@ -20,12 +20,12 @@ func _physics_process(delta):
 		
 	var new_chunk = int(floor(player.position.y / CHUNK_HEIGHT))
 	if new_chunk > current_chunk:
-		# bajando → mover el de arriba hacia abajo
+		# bajando: mover el de arriba hacia abajo
 		var top_chunk = get_top_chunk()
 		top_chunk.position.y = (new_chunk + 1) * CHUNK_HEIGHT
 
 	elif new_chunk < current_chunk:
-		# subiendo → mover el de abajo hacia arriba
+		# subiendo: mover el de abajo hacia arriba
 		var bottom_chunk = get_bottom_chunk()
 		bottom_chunk.position.y = (new_chunk - 1) * CHUNK_HEIGHT
 	current_chunk = new_chunk
